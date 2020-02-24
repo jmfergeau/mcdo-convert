@@ -4,6 +4,7 @@ function mcdoConvert() {
         bigmacDisp = document.getElementById('bigmac'),
         friteDisp = document.getElementById('frite'),
         errorMsg = document.getElementById('errorMsg'),
+        inputRes = document.getElementById('inputRes'),
         bigmac = 4.55,
         frite = 2.65,
         err;
@@ -21,4 +22,5 @@ function mcdoConvert() {
     operation2 = inputEuro.value % frite;
     bigmacDisp.innerHTML = operation1.toFixed(0);
     friteDisp.innerHTML = operation2.toFixed(0);
+    inputRes.innerHTML = inputEuro.value;
 };
