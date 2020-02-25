@@ -51,3 +51,13 @@ function mcdoConvert() {
     // Renvoi de la réponse avec un ! pour conclure la réponse
     resultHTML.innerHTML = result + " !";
 };
+
+// Ceci fait que la touche entrée exécute le script au lieu de changer vainement de page
+$(document).ready(function() {
+    $('form input').keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        mcdoConvert();
+      }
+    });
+  });
