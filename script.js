@@ -1,26 +1,53 @@
+// Ces variables sont globales afin de s'en servir ailleurs sur la page
+var bigmac = 4.55,
+    frite = 2.65,
+    prixBM = document.getElementById('prixBM'),
+    prixF = document.getElementById('prixF');
+
+// Affiche les prix originaux dans la section "Techniquement..."
+prixBM.innerHTML = bigmac;
+prixF.innerHTML = frite;
+
 function mcdoConvert() {
     // Prix basés sur ceux d'un big mac et d'une frite moyenne en février 2020
     var inputEuro = document.getElementById('inputEuro'),
-        bigmacDisp = document.getElementById('bigmac'),
-        friteDisp = document.getElementById('frite'),
         errorMsg = document.getElementById('errorMsg'),
-        inputRes = document.getElementById('inputRes'),
-        bigmac = 4.55,
-        frite = 2.65,
-        err;
+        resultHTML = document.getElementById('result');
 
-    // Le garde-fou
-    if (inputEuro.value == "" || isNaN(inputEuro.value) || inputEuro.value < 1) {
+    // Le garde-fou. Il ramène une erreur si le chiffre est trop élevé, trop bas ou pas un chiffre
+    if (inputEuro.value == "" || isNaN(inputEuro.value) || inputEuro.value < 1 || inputEuro.value >= 1000000000 ) {
+        // Affiche le bloc d'erreur et arrête le script
         errorMsg.classList.remove("d-none");
         return false;
     } else {
+        // Si l'utilisateur a mis un bon chiffre après une erreur, on cache le message.
         errorMsg.classList.add("d-none");
     };
 
     // L'opération. On divise pour les bigmacs et on prend le modulo pour les frites, puis on arrondit avec toFixed.
     operation1 = inputEuro.value / bigmac;
     operation2 = inputEuro.value % frite;
-    bigmacDisp.innerHTML = operation1.toFixed(0);
-    friteDisp.innerHTML = operation2.toFixed(0);
-    inputRes.innerHTML = inputEuro.value;
+
+    // On commence à écrire le résultat. On rapporte d'abord la somme donnée
+    result = inputEuro.value + " € font<br/>";
+
+    // Mise au pluriel des bigmacs
+    if (operation1.toFixed(0) == 1){
+        result = result + operation1.toFixed(0) + " Big Mac&trade;";
+    } else {
+        result = result + operation1.toFixed(0) + " Big Macs&trade;";
+    };
+
+    // Rajout des frites s'il y en a et mise au pluriel s'il faut.
+    if (operation2.toFixed(0) != 0) {
+        result = result + " et " + operation2.toFixed(0);
+        if (operation2.toFixed(0) == 1) {
+            result = result + " frite";
+        } else {
+            result = result + " frites";
+        };  
+    };
+
+    // Renvoi de la réponse avec un ! pour conclure la réponse
+    resultHTML.innerHTML = result + " !";
 };
