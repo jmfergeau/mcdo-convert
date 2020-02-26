@@ -1,5 +1,5 @@
 // Ces variables sont globales afin de s'en servir ailleurs sur la page
-var bigmac = 4.55,
+var bigmac = 4.55, // Prix basés sur ceux d'un big mac et d'une frite moyenne en février 2020
     frite = 2.65,
     prixBM = document.getElementById('prixBM'),
     prixF = document.getElementById('prixF');
@@ -9,7 +9,7 @@ prixBM.innerHTML = bigmac;
 prixF.innerHTML = frite;
 
 function mcdoConvert() {
-    // Prix basés sur ceux d'un big mac et d'une frite moyenne en février 2020
+    // Déclarations des éléments à modifier
     var inputEuro = document.getElementById('inputEuro'),
         errorMsg = document.getElementById('errorMsg'),
         resultHTML = document.getElementById('result');
@@ -33,18 +33,18 @@ function mcdoConvert() {
 
     // Mise au pluriel des bigmacs
     if (operation1.toFixed(0) == 1){
-        result = result + operation1.toFixed(0) + " Big Mac&trade;";
+        result = result + operation1.toFixed(0) + " Big Mac&trade; 🍔";
     } else {
-        result = result + operation1.toFixed(0) + " Big Macs&trade;";
+        result = result + operation1.toFixed(0) + " Big Macs&trade; 🍔";
     };
 
     // Rajout des frites s'il y en a et mise au pluriel s'il faut.
     if (operation2.toFixed(0) != 0) {
         result = result + " et " + operation2.toFixed(0);
         if (operation2.toFixed(0) == 1) {
-            result = result + " frite";
+            result = result + " frite 🍟";
         } else {
-            result = result + " frites";
+            result = result + " frites 🍟";
         };  
     };
 
