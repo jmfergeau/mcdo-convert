@@ -15,7 +15,7 @@ function mcdoConvert() {
         resultHTML = document.getElementById('result');
 
     // Le garde-fou. Il ramène une erreur si le chiffre est trop élevé, trop bas ou pas un chiffre
-    if (inputEuro.value == "" || isNaN(inputEuro.value) || inputEuro.value < 1 || inputEuro.value >= 1000000000 ) {
+    if (inputEuro.value == "" || isNaN(inputEuro.value) || inputEuro.value < 1 || inputEuro.value >= 9999999999 ) {
         // Affiche le bloc d'erreur et arrête le script
         errorMsg.classList.remove("d-none");
         return false;

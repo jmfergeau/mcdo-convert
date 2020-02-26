@@ -23,13 +23,13 @@
                     <form action="get">
                         <div class="form-group">
                         <label for="euro">Somme en €uro</label>
-                        <input type="text" class="form-control" name="inputEuro" id="inputEuro" aria-describedby="inputEuro" placeholder="533.57">
+                        <input type="number" max="9999999999" min="1" class="form-control" name="inputEuro" id="inputEuro" aria-describedby="inputEuro">
                         <button id="convert" type="button" class="btn btn-primary btn-lg btn-block mt-2 shadow-sm" onclick="mcdoConvert();">Convertir en McDo&trade;</button>
                         </div>
                     </form>
 
                     <div id="errorMsg" class="alert alert-danger d-none" role="alert">
-                        <b>Une erreur est survenue !</b> Veuillez entrer un nombre valide !<br/><small>Note: utilisez les points pour les virgules.</small>
+                        <b>Une erreur est survenue !</b> Veuillez entrer un nombre valide pas trop gros !<br/><small>Note: utilisez les points pour les virgules.</small>
                     </div>
 
                     <p id="result" class="h2 text-center font-weight-bold"></p>
