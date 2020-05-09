@@ -1,0 +1,19 @@
+{
+	"name": "Convertisseur Euro McDo",
+	"short_name": "Conversion Euro McDo",
+	"description": "Une appli qui convertit une somme en Big Mac et frites !",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#ffffff",
+	"icons": [
+		{
+			"src": "/favicon-192.png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/favicon-512.png",
+			"sizes": "512x512"
+		}
+	]
+}
