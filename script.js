@@ -1,5 +1,5 @@
 // Ces variables sont globales afin de s'en servir ailleurs sur la page
-var bigmac = 4.65, // Prix basés sur ceux d'un big mac et d'une frite moyenne en décembre 2020
+let bigmac = 4.65, // Prix basés sur ceux d'un big mac et d'une frite moyenne en décembre 2020
     frite = 2.65,
     prixBM = document.getElementById('prixBM'),
     prixF = document.getElementById('prixF');
@@ -10,7 +10,7 @@ prixF.innerHTML = frite;
 
 function mcdoConvert() {
     // Déclarations des éléments à modifier
-    var inputEuro = document.getElementById('inputEuro'),
+    let inputEuro = document.getElementById('inputEuro'),
         errorMsg = document.getElementById('errorMsg'),
         resultHTML = document.getElementById('result');
 
@@ -34,13 +34,14 @@ function mcdoConvert() {
     // Mise au pluriel des bigmacs
     if (operation1.toFixed(0) == 1){
         result = result + operation1.toFixed(0) + " Big Mac&trade; 🍔";
-    } else {
+    } else if (operation1.toFixed(0) > 1) {
         result = result + operation1.toFixed(0) + " Big Macs&trade; 🍔";
     };
 
     // Rajout des frites s'il y en a et mise au pluriel s'il faut.
     if (operation2.toFixed(0) != 0) {
-        result = result + " et " + operation2.toFixed(0);
+        if (operation1.toFixed(0) != 0) result = result + "<br/>et " + operation2.toFixed(0);
+        else result = result + operation2.toFixed(0);
         if (operation2.toFixed(0) == 1) {
             result = result + " frite 🍟";
         } else {
@@ -53,11 +54,6 @@ function mcdoConvert() {
 };
 
 // Ceci fait que la touche entrée exécute le script au lieu de changer vainement de page
-$(document).ready(function() {
-    $('form input').keydown(function(event){
-      if(event.keyCode == 13) {
-        event.preventDefault();
-        mcdoConvert();
-      }
-    });
-  });
+if (convert) convert.onclick = function () {
+    mcdoConvert();
+}
