@@ -1,6 +1,6 @@
 // Ces variables sont globales afin de s'en servir ailleurs sur la page
-let bigmac = 4.65, // Prix basés sur ceux d'un big mac et d'une frite moyenne en décembre 2020
-    frite = 2.65,
+let bigmac = 5.25, // Prix basés sur ceux d'un big mac et d'une frite moyenne en juillet 2022
+    frite = 3.35,
     prixBM = document.getElementById('prixBM'),
     prixF = document.getElementById('prixF');
 
